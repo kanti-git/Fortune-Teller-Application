@@ -1,0 +1,22 @@
+import random
+import json
+
+fortunes = [
+    "You will have a great day!",
+    "Expect a surprise that will change your life.",
+    "Good things come to those who wait.",
+    "Adventure is in your future.",
+    "The best is yet to come.",
+]
+
+def lambda_handler(event, context):
+    # Select a random fortune from the list
+    random_fortune = random.choice(fortunes)
+    
+    # Construct the response
+    response = {
+        "statusCode": 200,
+        "body": json.dumps({"fortune": random_fortune}),
+    }
+    
+    return response
